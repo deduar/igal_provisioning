@@ -15,7 +15,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Project name </label>
-                            <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}" name="name" id="name">
+                            <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}" name="name" id="name" value="{{ old('name') }}">
                     
                             <!-- Error -->
                             @if ($errors->has('name'))
