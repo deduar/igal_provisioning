@@ -11,24 +11,24 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     CREATE NEW DEPLOIT
 
-                    {{ Form::open(['url' => 'deploit/store', 'method' => 'post']) }}
+                    <form action="store" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Project name </label>
-                            <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}" name="name" id="name" value="{{ old('name') }}">
-                    
+                            <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}"
+                                name="name" id="name" value="{{ old('name') }}">
+
                             <!-- Error -->
                             @if ($errors->has('name'))
-                            <div class="error">
-                                {{ $errors->first('name') }}
-                            </div>
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('name') }}
+                                </div>
                             @endif
                         </div>
 
                         <input type="submit" name="send" value="Submit" class="btn btn-dark btn-block">
 
-                    {{ Form::close() }}
-
+                    </form>
                 </div>
             </div>
         </div>
