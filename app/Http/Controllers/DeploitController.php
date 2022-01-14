@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDeploitRequest;
 use App\Http\Requests\UpdateDeploitRequest;
 use App\Models\Deploit;
+use Illuminate\Http\Request;
 
 class DeploitController extends Controller
 {
@@ -16,7 +17,7 @@ class DeploitController extends Controller
     public function index()
     {
         $deploits = Deploit::all();
-        return view('deploit.index', $deploits);
+        return view('deploit.index', ['deploits' => $deploits]);
     }
 
     /**
@@ -26,7 +27,7 @@ class DeploitController extends Controller
      */
     public function create()
     {
-        //
+        return view('deploit.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class DeploitController extends Controller
      */
     public function store(StoreDeploitRequest $request)
     {
-        //
+        dd($request->name);
     }
 
     /**

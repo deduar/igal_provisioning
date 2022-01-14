@@ -22,6 +22,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/deploit', [DeploitController::class, 'index'])->middleware(['auth'])->name('deploit');
+Route::get('/deploit', [DeploitController::class, 'index'])->middleware(['auth'])->name('deploit.index');
+Route::get('/deploit/create', [DeploitController::class, 'create'])->middleware(['auth'])->name('deploit.create');
+Route::post('/deploit/store', [DeploitController::class, 'store'])->middleware(['auth'])->name('deploit.store');
 
 require __DIR__.'/auth.php';
