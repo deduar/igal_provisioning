@@ -16,6 +16,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <a href="{{route('deploit.create')}}"><button class="btn btn-info">New Deploit</button></a>
+                    <a href="{{route('deploit.index')}}"><button class="btn btn-info">Back</button></a>
 
                     <table class="table table-bordered">
                         <tr>
@@ -26,9 +27,8 @@
                             <th>Start Date</th>
                             <th>Info ID</th>
                             <th>Credentials ID</th>
-                            <th width="280px">Action</th>
                         </tr>
-                        @foreach ($deploits as $deploit)
+
                         <tr>
                             <td>{{ $deploit->id }}</td>
                             <td>{{ $deploit->name }}</td>
@@ -37,17 +37,8 @@
                             <td>{{ date('d/m/Y', strtotime($deploit->startDate)) }}</td>
                             <td>{{ $deploit->info_id }}</td>
                             <td>{{ $deploit->credentials_id }}</td>
-                            <td>
-                                <form action="{{ route('deploit.destroy',$deploit->id) }}" method="POST">
-                                    <a class="btn btn-info" href="{{ route('deploit.show',$deploit->id) }}">Show</a>
-                                    <a class="btn btn-primary" href="{{ route('deploit.edit',$deploit->id) }}">Edit</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
                         </tr>
-                        @endforeach
+
                     </table>
 
                 </div>

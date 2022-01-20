@@ -19,7 +19,7 @@ class DeploitController extends Controller
     public function index()
     {
         $deploits = Deploit::all();
-        return view('deploit.index', ['deploits' => $deploits]);
+        return view('deploit.index', compact('deploits'));
     }
 
     /**
@@ -51,9 +51,10 @@ class DeploitController extends Controller
      * @param  \App\Models\Deploit  $deploit
      * @return \Illuminate\Http\Response
      */
-    public function show(Deploit $deploit)
+    public function show($id)
     {
-        //
+        $deploit = Deploit::findOrFail($id);
+        return view('deploit.show',compact('deploit'));
     }
 
     /**
@@ -62,9 +63,10 @@ class DeploitController extends Controller
      * @param  \App\Models\Deploit  $deploit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Deploit $deploit)
+    public function edit($id)
     {
-        //
+        $deploit = Deploit::findOrFail($id);
+        return view('deploit.edit',compact('deploit'));
     }
 
     /**
@@ -76,7 +78,7 @@ class DeploitController extends Controller
      */
     public function update(UpdateDeploitRequest $request, Deploit $deploit)
     {
-        //
+        dd($request);
     }
 
     /**
