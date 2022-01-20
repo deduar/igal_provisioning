@@ -85,8 +85,9 @@ class DeploitController extends Controller
      * @param  \App\Models\Deploit  $deploit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Deploit $deploit)
+    public function destroy($id)
     {
-        //
+        Deploit::destroy($id);
+        return redirect()->route('deploit.index')->with('success','Deploit '.$id.' deleted successfully');
     }
 }

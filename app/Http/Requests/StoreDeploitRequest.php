@@ -24,7 +24,8 @@ class StoreDeploitRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:20|unique:deploits'
+            'name'      => 'required|string|max:20|unique:deploits',
+            'startDate' => 'required|date',
         ];
     }
 }

@@ -25,5 +25,6 @@ Route::get('/dashboard', function () {
 Route::get('/deploit', [DeploitController::class, 'index'])->middleware(['auth'])->name('deploit.index');
 Route::get('/deploit/create', [DeploitController::class, 'create'])->middleware(['auth'])->name('deploit.create');
 Route::post('/deploit/store', [DeploitController::class, 'store'])->middleware(['auth'])->name('deploit.store');
+Route::delete('/deploit/{id}', [DeploitController::class, 'destroy'])->middleware(['auth'])->name('deploit.destroy');
 
 require __DIR__.'/auth.php';

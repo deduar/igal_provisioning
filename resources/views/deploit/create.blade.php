@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <a href="{{route('deploit.index')}}"><button class="btn btn-info">Back</button></a>
                     CREATE NEW DEPLOIT
 
                     <form class="form-inline" action="store" method="POST">
@@ -40,7 +41,11 @@
 
                         <div class="form-group">
                             <label>Start date </label>
-                            <input type="date" class="form-control {{ $errors->has('startDate') ? 'error' : '' }}" name="startDate" id="startDate" value="{{ old('startDate') }}">
+                            <input type="date" class="form-control {{ $errors->has('startDate') ? 'error' : '' }}" name="startDate" id="startDate" value="{{ old('startDate') }}" required>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-success">Create</button>
                         </div>
 
                         <!-- Error -->
@@ -49,10 +54,6 @@
                             {{ $errors->first('name') }}
                         </div>
                         @endif
-
-                        <div class="form-group">
-                            <input type="submit" name="send" value="Submit" class="btn btn-dark btn-block">
-                        </div>
 
                     </form>
 
