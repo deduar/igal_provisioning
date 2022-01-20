@@ -20,7 +20,7 @@ class CreateDeploitsTable extends Migration
             $table->unsignedBigInteger('leader_id');
             $table->date('startDate');
             $table->unsignedBigInteger('info_id');
-            $table->unsignedBigInteger('credential_is');
+            $table->unsignedBigInteger('credentials_id');
             $table->timestamps();
         });
     }

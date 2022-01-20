@@ -14,6 +14,6 @@ class Deploit extends Model
         'leader_id',
         'startDate',
         'info_id',
-        'credential_is'
+        'credentials_id'
     ];
 }

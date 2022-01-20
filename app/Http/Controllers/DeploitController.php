@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateDeploitRequest;
 use App\Models\Deploit;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class DeploitController extends Controller
 {
     /**
@@ -27,7 +29,8 @@ class DeploitController extends Controller
      */
     public function create()
     {
-        return view('deploit.create');
+        $id = Auth::id();
+        return view('deploit.create',['id' => $id]);
     }
 
     /**
@@ -38,7 +41,8 @@ class DeploitController extends Controller
      */
     public function store(StoreDeploitRequest $request)
     {
-        dd($request->name);
+        Deploit::create($request->all());
+        return redirect()->route('deploit.index')->with('success','Deploit created successfully');
     }
 
     /**
