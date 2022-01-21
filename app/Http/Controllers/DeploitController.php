@@ -78,7 +78,7 @@ class DeploitController extends Controller
      */
     public function update(UpdateDeploitRequest $request, Deploit $deploit)
     {
-        dd($request);
+        dd($request->ver);
     }
 
     /**
